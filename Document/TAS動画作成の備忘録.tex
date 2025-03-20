@@ -1,71 +1,7 @@
 %This LaTeX source can compile with LuaLaTeX.
-\documentclass[fontsize=11bp,paper=a4paper]{jlreq}
-\pagestyle{empty}
-\usepackage{mathtools,subcaption,tabularray,tikz,luatexja-fontspec,luacolor,lua-ul}
-\usepackage[default]{fontsetup}
-\setmainfont{Source Code Pro}
-\setmainjfont{Meiryo}
-\setmonofont{Source Code Pro}
-\renewcommand{\theenumii}{\arabic{enumii}}
-\renewcommand{\theenumiii}{\arabic{enumiii}}
-\renewcommand{\labelenumii}{\theenumi.\theenumii.\,\,\,}
-\renewcommand{\labelenumiii}{\theenumi.\theenumii.\theenumiii.\,\,\,}
-\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\documentclass[fleqn]{jlreq}
+\usepackage{luatexja-fontspec,sansmathfonts}
 \begin{document}
-\noindent 動作環境
-
-\noindent Windows11 23H2, PowerToys v0.80.0, FFmpeg 6.1.1
-\begin{enumerate}
-\item PowerToysのインストール
-\begin{enumerate}
-\item \url{https://github.com/microsoft/PowerToys/releases/}にアクセス
-\item Latestのバージョンを選んで下のAssetsからPowerToysUserSetup-(version)-x64.exeをクリックしてダウンロード
-\item ダウンロードが終了したら直接開いたりダウンロードフォルダ経由で開く
-\item インストーラーなのでそのまま進めていけば完了(PCの再起動が必要?)
-\end{enumerate}
-\item FFmpegのインストール
-\begin{enumerate}
-\item \url{https://github.com/BtbN/FFmpeg-Builds/releases}にアクセス
-\item Latestのバージョンを選んで下のAssetsからffmpeg-master-latest-win64-gpl.zipをクリックしてダウンロード
-\item ダウンロードが終了したらダウンロードフォルダを開いて解凍 \\
-\noindent (1つのフォルダ(この説明では分かりやすいようにフォルダ名をFFmpeg-Softwareとするが、名前は自由に変えてよい。)の中にbin,doc,LICENCE.txtがあるようにする)
-\item C:\textbackslash Program Files\textbackslash などにFFmpeg-Softwareを移動して削除を防ぐ
-\item これ以降は2.4の通りに移動させたとして操作する。他のフォルダに移動させた場合はパスがわかるようにしておく。
-\item Windows+Iで設定を開き、システム→バージョン情報→システムの詳細設定→環境変数と進める
-\item Pathをクリックして選択したら編集
-\item 参照をクリックしてC:\textbackslash Program Files\textbackslash FFmpeg-Software\textbackslash binフォルダを設定
-\item 最後にOKを押して全て閉じたら完了 \\
-\noindent (FFmpegが使えるかのテストは、Windows+Rでcmdと入力し、コマンドプロンプトでffmpeg -versionと入力すると確認できる。)
-\end{enumerate}
-\item ようやくTAS動画の作成
-\begin{enumerate}
-\item まずはTASを1倍速でフレーム録画(Ctrl+Shift+R)\\
-\noindent (暇なのでバックグラウンド実行を有効にして裏で作業でもしよう)
-\item 終わったらフレーム録画のフォルダを開く\\
-\noindent Windows+RでAppDataと入力した後にLocalLow\textbackslash NoBrakesGames\textbackslash Humanと進む
-\item Framesフォルダ(FramesまたはFrames+数字のフォルダ)が生成されるので最新のFramesフォルダを開き、何も選択せずに右クリックしてPowerRenameで名前を変更
-\item 変更部分はファイル名のみにし、変更元の正規表現を有効にし、「shot \textbackslash d+」から「\$\{padding=5\}」に変更するよう設定し、適用\\
-\noindent Tip:\d+は1桁以上の数字\$\{padding=5\}は00000から始まり、99999まではすべて5桁で表示するようにしている。
-\item エクスプローラーでFramesフォルダを開いたら、F4でアドレスバーを開きアドレスバーの文字をすべて消す
-\item アドレスバーに下のコマンドを入力\\
-\noindent ffmpeg -y -framerate 60 -i \%05d.png -c:v libx264 -pix\_fmt yuv420p -crf 18 TASdouga.mp4\\
-\noindent ハードウェアエンコードの場合\\
-\noindent ffmpeg -y -framerate 60 -i \%05d.png -c:v h264\_nvenc -b:v 0 -cq 18 -bf 0 -g 150 -profile:v high TASdouga.mp4\\
-\noindent 縦画面にする場合\\
-\noindent ffmpeg -y -framerate 60 -i \%05d.png -vf "pad=w=iw:h=ih+2334:x=0:y=1167:color=black" -c:v h264\_nvenc -b:v 0 -cq 18 -bf 0 -g 150 -profile:v high TASdougaTate.mp4
-\item コマンドの各引数について
-\begin{enumerate}
-\item ffmpeg…FFmpegを実行
-\item -framerate 60…入力/出力ファイルのフレームレートを60に設定
-\item -i \%05d.png…入力ファイルの名前を指定する。\%05dは5桁の連番を表す。
-\item -vcodec libx264…出力ファイルのコーデックを指定する。libx265などは一部の動画編集ソフトが対応していないのでおすすめしない。
-\item -pix\_fmt yuv420p…ピクセルフォーマットを指定しているらしいが詳しいことはえむずにもわからなかった。
-\item -crf 18…出力ファイルのクオリティを指定。このオプションを付けない(可逆圧縮で出力)と動画編集ソフトで正しく読み込まれない。また、値が小さいほど高画質になる。
-\item TASdouga.mp4…出力ファイルの名前。拡張子がmp4であれば自由にファイル名を指定できるが、スペースは使えない。
-\end{enumerate}
-\end{enumerate}
-\end{enumerate}
+\title{title}
+\maketitle
 \end{document}
-\begin{enumerate}
-\item a
-\end{enumerate}
