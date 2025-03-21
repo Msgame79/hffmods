@@ -1,0 +1,90 @@
+%LuaLaTeX
+\documentclass[lualatex,a4paper,fontsize=11pt,jafontscale=0.9247,titlepage,oneside]{jlreq}
+\input{preamble}
+\begin{document}
+\title{Human Fall Flat Modドキュメント}
+\author{著:\;\href{https://www.youtube.com/channel/UCKpnq5EXLCcuPsEGAjyXbsg}{Msgames79}}
+\date{初版:\;\today}
+\maketitle
+This document was compiled with Lua\LaTeX\ from \TeX\ Live 2024.\par
+Fonts used: Noto Sans Mono, Noto Sans JP
+\tableofcontents
+\clearpage
+\section{概要}
+Human Fall Flat用のModをインストール・使用するためのドキュメントです。なお、本書はあくまで情報の提供のみを目的としており、実際に使用することによるすべての責任は読者に存在します。
+\section{用語と定義}
+\begin{description}
+\item[Human Fall Flat]No Brakes GamesからSteamを中心に展開する3Dプラットフォーマー。このドキュメントでは\href{https://store.steampowered.com/app/477160}{Steam版}を扱う。
+\item[BepInEx]Unity等のプラットフォームで動作するプラグイン用フレームワーク。このドキュメントではではインストールのみ紹介する。\href{https://github.com/BepInEx/BepInEx}{GitHubリポジトリ}
+\item[ラジオボタン]選択肢から1つだけ選べるボタン。ほとんどのラジオボタンはどれかを選択した後、解除することができないか、解除専用のボタンを設定しているが、ここで扱うもの(基本的にUnity上で動作するもの)は選択したものをもう一度クリックすれば選択を解除することができる(例外もある)。
+\end{description}
+\section{動作環境}
+\begin{itemize}
+\item Windows 10もしくは11
+\item Human Fall Flat 現行バージョン
+\end{itemize}
+\section{BepInExのインストール}
+Modをインストールするために、BepInExというライブラリをダウンロードし設定する必要があります。
+\subsection{Human Fall Flatのゲームフォルダを特定}
+\begin{enumerate}
+\item \href{steam://open/games/details/477160}{ここ}をクリックしてSteamクライアントのHFFのトップ画面を開く。
+\item \label{4.1.2}管理(歯車)→管理→ローカルファイルを閲覧とクリックしてエクスプローラーの新しいウィンドウを開く。
+\item \label{4.1.3}F4キーを押すとアドレスバーのパスが選択されるのでCtrl+Cか右クリックでコピーしておく(見えるようにメモ帳に貼り付けても良い)。
+\end{enumerate}
+\subsection{BepInExのインストール}
+\begin{enumerate}
+\item \href{https://github.com/BepInEx/BepInEx/releases/latest}{ここ}からBepInEx\_win\_x86\_(version).zipをダウンロード。
+\item ダウンロードしたBepInEx\_win\_x86\_5.4.23.2.zipを\hyperref[4.1.3]{4.1.3}でコピーしたフォルダに展開。
+\item \href{steam://rungameid/477160}{ここ}をクリックしてHuman Fall Flatを起動。
+\item Curve Gamesのロゴが出現したらAlt+F4などで閉じる。
+\item \hyperref[4.1.2]{4.1.2}の方法でエクスプローラーを開き、BepInExフォルダ内にpluginsというフォルダがあれば完了。
+\end{enumerate}
+\section{plccタイマー v1.7.4}
+\subsection{概要}
+plccタイマー(plcc's Timer)は名前の通りplcc(\href{https://github.com/plcc0}{GitHub})(\href{https://space.bilibili.com/111277972}{BiliBili})によって制作されたゲーム内時間(In Game Time=IGT)を計測するタイマーです。\parr
+BepInExライブラリから呼び出して使用します。
+\subsection{インストール}
+\begin{enumerate}   
+\item \href{https://github.com/Msgame79/hffmods/raw/refs/heads/main/plcc's%20timer/1.7.4/%E6%97%A5%E6%9C%AC%E8%AA%9E.zip}{ここ}をクリックして日本語.zipをダウンロード。
+\item \hyperref[4.1.2]{4.1.2}の方法でエクスプローラーを開き、BepInEx\textbackslash pluginsに移動する。
+\item \label{5.2.3}\hyperref[4.1.3]{4.1.3}の方法でフォルダへのパスをコピーする。
+\item ダウンロードした日本語.zipを\hyperref[5.2.3]{5.2.3}でコピーしたフォルダに展開。
+\end{enumerate}
+\subsection{GUI操作}
+Homeキーを押すとメインウィンドウが開きます。
+\subsection{メインウィンドウ}
+\begin{description}
+\item[タイマー (ラジオボタン)]タイマーの表示と共通の動作に関係するウィンドウ。
+\item[設定 (ラジオボタン)]タイマーのカテゴリ別動作に関係するウィンドウ。
+\item[カスタム (ラジオボタン)]タイマーの見た目を変更するウィンドウ。
+\item[その他 (ラジオボタン)]タイマーと直接関係しないウィンドウ。
+\end{description}
+\subsubsection{タイマー}
+\begin{description}
+\item[]
+\item[]
+\end{description}
+\subsubsection{設定}
+\begin{description}
+\item[]
+\item[]
+\end{description}
+\subsubsection{カスタム}
+\begin{description}
+\item[]
+\item[]
+\end{description}
+\subsubsection{その他}
+\begin{description}
+\item[文字サイズ調整 (チェックボックス)]
+\item[ウィンドウ同期 (チェックボックス)]
+\end{description}
+\section{TASMod v1.15.15.2}
+\section{Human Mod v1.5.18.4}
+\section{Skip Intro Logos v1.0.0.0}
+\section{Achievement Tracker v1.2.4 + Achievements Windowed v1.2.1}
+\section{cprev v1.1.1}
+\section{Grab Count Tracker v1.1.0}
+\section{Shell Logger v1.2.0}
+\section{Speedrun-Practice Tools v1.0.0.1}
+\end{document}

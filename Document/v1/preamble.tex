@@ -1,0 +1,43 @@
+\ltjsetparameter{jacharrange={-2}}
+\usepackage{layout}
+\usepackage{luatexja-fontspec,titlesec}
+\setmainfont{NotoSansMono-Medium.ttf}[BoldFont=NotoSansMono-SemiBold.ttf]
+\setmainjfont{NotoSansJP-Medium.ttf}[BoldFont=NotoSansJP-SemiBold.ttf]
+\newfontfamily{\sectionfont}[UprightFont = {NotoSansMono-Medium.ttf},BoldFont = {NotoSansMono-SemiBold.ttf},UprightFeatures={AltFont={{Range="2E80-"9FFF, Font=NotoSansJP-Medium.ttf}}},BoldFeatures={AltFont={{Range="2E80-"9FFF, Font=NotoSansJP-Medium.ttf}}}]{NotoSansMono-Medium.ttf}
+\titleformat{\section}{\sectionfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\sectionfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\sectionfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\renewcommand*\descriptionlabel[1]{\sectionfont\bfseries \textbullet \hspace{0.15em}#1\hfil}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\setlength{\hoffset}{-0.4in}
+\setlength{\voffset}{-0.6in}
+\setlength{\oddsidemargin}{2pt}
+\setlength{\topmargin}{3pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\textheight}{760pt}
+\setlength{\textwidth}{514pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparpush}{4pt}
+\setlength{\footskip}{20pt}
+\makeatletter
+\newcommand*{\themonth}{\two@digits\month}
+\newcommand*{\theday}{\two@digits\day}
+\makeatother
+\renewcommand{\today}{{\the\year}/{\themonth}/{\theday}}
+\newcommand{\todayen}{{\themonth}-{\theday}-{\the\year}}
+\setcounter{tocdepth}{3}
+\newcommand{\parr}{\par\hspace{-1\zw}}
+\renewcommand{\jlreqxkanjiskip}{0pt plus 0pt minus 1pt}
+\renewcommand{\thesection}{\textbf{\texttt{\arabic{section}.}}}
+\renewcommand{\thesubsection}{\textbf{\texttt{\arabic{section}.\arabic{subsection}.}}}
+\renewcommand{\thesubsubsection}{\textbf{\texttt{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}}}
+\renewcommand{\theenumi}{\arabic{enumi}.}
+\renewcommand{\theenumii}{\arabic{enumii}.}
+\renewcommand{\theenumiii}{\arabic{enumiii}.}
+\renewcommand{\theenumiv}{\arabic{enumiv}.}
+\renewcommand{\labelenumi}{\texttt{\theenumi}\hspace{0.5em}}
+\renewcommand{\labelenumii}{\texttt{\theenumi\theenumii}\hspace{0.5em}}
+\renewcommand{\labelenumiii}{\texttt{\theenumi\theenumii\theenumiii}\hspace{0.5em}}
+\renewcommand{\labelenumiv}{\texttt{\theenumi\theenumii\theenumiii\theenumiv}\hspace{0.5em}}
