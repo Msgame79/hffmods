@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.12)  21 MAR 2025 03:43
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.12)  7 AUG 2025 16:05
  restricted system commands enabled.
  file:line:error style messages enabled.
-**c:/自分用/GitHub/hffmods/Document/TAS動画作成の備忘録.tex
-(c:/自分用/GitHub/hffmods/Document/TAS動画作成の備忘録.tex
+**c:/自分用/GitHub/hffmods/tas/TAS動画作成の備忘録.tex
+(c:/自分用/GitHub/hffmods/tas/TAS動画作成の備忘録.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
@@ -670,12 +670,12 @@ Here is how much of LuaTeX's memory you used:
  125244,794899 words of node,token memory allocated
  884 words of node memory still in use:
    8 hlist, 1 vlist, 5 rule, 2 glue, 3 kern, 2 glyph, 164 attribute, 46 glue_spec, 24 attribute_list, 1 write, 10 user_defined nodes
-   avail lists: 1:5,2:1202,3:16,4:37,5:28,6:6,7:142,8:2,9:50,10:5,11:2
+   avail lists: 1:5,2:1190,3:16,4:37,5:28,6:6,7:140,8:2,9:50,10:5,11:2
  30008 multiletter control sequences out of 65536+600000
  50 fonts using 40529495 bytes
- 125i,6n,128p,1939b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 125i,6n,128p,1934b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf><c:/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf><c:/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf>
-Output written on TAS動画作成の備忘録.pdf (1 page, 8374 bytes).
+Output written on TAS動画作成の備忘録.pdf (1 page, 8356 bytes).
 
 PDF statistics: 36 PDF objects out of 1000 (max. 8388607)
  20 compressed objects within 1 object stream

@@ -1,6 +1,6 @@
-PWD c:/自分用/GitHub/hffmods/Document
+PWD c:/自分用/GitHub/hffmods/tas
 INPUT c:/texlive/2024/texmf-var/web2c/luahbtex/lualatex.fmt
-INPUT c:/自分用/GitHub/hffmods/Document/TAS動画作成の備忘録.tex
+INPUT c:/自分用/GitHub/hffmods/tas/TAS動画作成の備忘録.tex
 OUTPUT TAS動画作成の備忘録.log
 INPUT c:/texlive/2024/texmf-dist/tex/latex/tex-ini-files/lualatexquotejobname.lua
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/ltluatex.lua
