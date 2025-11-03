@@ -1,0 +1,2 @@
+do {Compress-Archive .\achievementResources .\HFF_AchievementTracker.zip -Force} until (Test-Path .\HFF_AchievementTracker.zip)
+do {Remove-Item .\achievementResources -Recurse} until (-not (Test-Path .\achievementResources))
